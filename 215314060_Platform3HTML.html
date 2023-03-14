@@ -26,7 +26,50 @@
             tglLengkap = nmhari[hari] + ", " + tanggal + " " + nmbulan[bulan] + " " + tahun;
             
             window.setTimeout("waktu()", 1000);
+            function waktu() {
+                var tanggal = new Date();
+                setTimeout("waktu()", 1000);
+                document.getElementById("jam").innerHTML = tanggal.getHours() + ":" + tanggal.getMinutes() + ":" + tanggal.getSeconds;
+            }
         </script>
+        <div class="waktu">
+            <script language="JavaScript">document.write(tglLengkap")</script>
+            <div>id='jam'</div>
+        </div>
+
+        <div> class = "card"
+            <div> class ="nama"
+                <span>nama:</span>
+                <input type="text" id="nama">
+                </div>
+
+                <div class ="jumlah">
+                    <span>umur:</span>
+                    <input type="number" id="jumlah">
+                </div>
+
+                <button onclick="submit()">SUBMIT</button>
+            </div>
+
+
+
+            <div id="tampilan"></div>
+            <div id="demo"></div>
     </div>
+
+    <script>
+        var id_nama = document.getElementById("nama");
+        var id_jumlah = document.getElementById("jumlah");
+        var id_tampilan = document.getElementById("tampilan");
+        var i;
+        function submit(){
+            let text = "";
+
+            for (let i=0; i<5; i++){
+                text += "<br>"
+            }
+            document.getElementById("demo").innerHTML = id_nama;
+        }
+        </script>
 </body>
 </html>
