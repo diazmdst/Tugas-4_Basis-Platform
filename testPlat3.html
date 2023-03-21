@@ -1,42 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style3.css">
     <title>Document</title>
 </head>
+
 <body>
+
     <div class="header">
-        <h1>Diaz eMDeeSTeh</h1>
+        <h1>mdst.az</h1>
     </div>
 
     <div class="row">
+
         <script>
-            var tglLengkap = new String();
-            var nmhari = ("Minggu Senin Selasa Rabu Kamis Jumat Sabtu");
-            hari = hari.split(" ");
-            var nmbulan = ("Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember");
-            bulan = bulan.split(" ");
+
+            var tanggallengkap = new String();
+            var namahari = ("Minggu Senin Selasa Rabu Kamis Jumat Sabtu");
+            namahari = namahari.split(" ");
+            var namabulan = ("Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember");
+            namabulan = namabulan.split(" ");
             var tgl = new Date();
             var hari = tgl.getDay();
             var tanggal = tgl.getDate();
             var bulan = tgl.getMonth();
             var tahun = tgl.getFullYear();
-            tglLengkap = nmhari[hari] + ", " + tanggal + " " + nmbulan[bulan] + " " + tahun;
-            
-           
+            tanggallengkap = namahari[hari] + ", " + tanggal + " " + namabulan[bulan] + " " + tahun;
+
+
+            // 1 detik = 1000
+            window.setTimeout("waktu()", 1000);
+            function waktu() {
+                var tanggal = new Date();
+                setTimeout("waktu()", 1000);
+                document.getElementById("jam").innerHTML = tanggal.getHours() + ":" + tanggal.getMinutes() + ":" + tanggal.getSeconds();
+            }
 
         </script>
+        <div class="waktu">
+            <script language='JavaScript'>document.write(tanggallengkap);</script>
+            <div id='jam'></div>
+        </div>
 
         <div class="card">
             <div class="nama">
-                <span>nama:</span><br>
+                <span>nama:</span>
                 <input type="text" id="nama" value="">
             </div>
 
             <div class="jumlah">
-                <span>jumlah:</span><br>
+                <span>jumlah:</span>
                 <input type="number" id="jumlah">
             </div>
 
@@ -55,16 +72,17 @@
         
     </div>
 
+
     <script>
         var id_nama = document.getElementById("nama");
-        var id_jum = document.getElementById("jumlah");
+        var id_jmlh = document.getElementById("jumlah");
         var id_tamp = document.getElementById("tampilan");
         var i;
         function kirim() {
             let text = "";
 
             //for untuk form input
-            for (let i = 1; i <= id_jum.value; i++) {
+            for (let i = 1; i <= id_jmlh.value; i++) {
                 text += "Pilihan" + i + " " + '<input class="form-control"  name = "DynamicTextBox"  id=  "DynamicTextBox"  type="text" value = "" />' + "<br>" + "<br>";
             }
             document.getElementById("demo").innerHTML = text;
@@ -77,24 +95,12 @@
         function kirim2() {
             let text = "";
 
-            for (let i = 1; i <= id_jum.value; i++) {
+            for (let i = 1; i <= id_jmlh.value; i++) {
                 text += '<input type="radio" name="menuradio" value="" id="menuradio">' + "Pilihan" + i + " " + "<br>" + "<br>";
             }
             document.getElementById("demo2").innerHTML = text;
         }
     </script>
-    <div id="result"></div>
-    <script>
-        function displayRadioValue() {
-            var text = document.getElementById("demo");
-            for(i=0; i<text.length; i++) {
-                if(text[i].checked)
-                document.getElementById("result").innerHTML
-                = "demo : " + text[i].value;
-            }
-            document.getElementById("tombol").innerHTML = '<button onclick="kirim2()">OK</button>';
-        }
-    </script>
-</body>8
+</body>
 
 </html>
