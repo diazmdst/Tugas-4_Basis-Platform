@@ -11,90 +11,61 @@
         <h1>Diaz eMDeeSTeh</h1>
     </div>
 
-    <div class="row">
+    <div class="row">      
         <script>
-            var tglLengkap = new String();
+            var tgllengkap = new String();
             var nmhari = ("Minggu Senin Selasa Rabu Kamis Jumat Sabtu");
-            hari = hari.split(" ");
+            nmhari = nmhari.split(" ");
             var nmbulan = ("Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember");
-            bulan = bulan.split(" ");
+            nmbulan = nmbulan.split(" ");
             var tgl = new Date();
             var hari = tgl.getDay();
             var tanggal = tgl.getDate();
             var bulan = tgl.getMonth();
             var tahun = tgl.getFullYear();
-            tglLengkap = nmhari[hari] + ", " + tanggal + " " + nmbulan[bulan] + " " + tahun;
-            
-           
+            tgllengkap = nmhari[hari] + ", " + tanggal + " " + nmbulan[bulan] + " " + tahun;
+
+            window.setTimeout("waktu()", 1000);
+            function waktu() {
+                var tanggal = new Date();
+                setTimeout("waktu()", 1000);
+                document.getElementById("jam").innerHTML = tanggal.getHours() + ":" + tanggal.getMinutes() + ":" + tanggal.getSeconds();
+            }
 
         </script>
 
+        <div class="waktu">
+            <script language='JavaScript'>document.write(tgllengkap);</script>
+            <div id='jam'></div>
+        </div>
+        
         <div class="card">
             <div class="nama">
-                <span>nama:</span><br>
-                <input type="text" id="nama" value="">
+                <label for="Nama">Nama : </label>
+                <input type="text" id="Nama" />
             </div>
 
             <div class="jumlah">
-                <span>jumlah:</span><br>
-                <input type="number" id="jumlah">
+                <label for="jumPil">Jumlah Pilihan : </label>
+                <input type="number" id="jumPil" />
             </div>
 
-            <button onclick="kirim()">KIRIM</button>                        
-        </div>
+            <button onclick="kirim()">KIRIM</button>
+            <div id="choose1"></div>
+            <div id="button1"></div>
+            <form>
+                <div id="list"></div>
+                <div id="submit1"></div>
+            </form>
+            <p id="result"></p>
+            <script src="mbuh.js"></script>
+
+
+        </div>              
+
+    </div>   
         
-         <div class="card">
-            <div id="demo"></div>
-         </div>              
 
-         <div id="tombol"></div>
-
-        <div class="card">
-            <div id="demo2"></div>
-        </div>        
-        
-    </div>
-
-    <script>
-        var id_nama = document.getElementById("nama");
-        var id_jum = document.getElementById("jumlah");
-        var id_tamp = document.getElementById("tampilan");
-        var i;
-        function kirim() {
-            let text = "";
-
-            //for untuk form input
-            for (let i = 1; i <= id_jum.value; i++) {
-                text += "Pilihan" + i + " " + '<input class="form-control"  name = "DynamicTextBox"  id=  "DynamicTextBox"  type="text" value = "" />' + "<br>" + "<br>";
-            }
-            document.getElementById("demo").innerHTML = text;
-            document.getElementById("tombol").innerHTML = '<button onclick="kirim2()">OK</button>';
-            // id_tamp.innerText = id_nama.value + ", " + id_jmlh.value;            
-        }
-
-
-        //fungsi untuk perulangan radiobutton
-        function kirim2() {
-            let text = "";
-
-            for (let i = 1; i <= id_jum.value; i++) {
-                text += '<input type="radio" name="menuradio" value="" id="menuradio">' + "Pilihan" + i + " " + "<br>" + "<br>";
-            }
-            document.getElementById("demo2").innerHTML = text;
-        }
-    </script>
-    <div id="result"></div>
-    <script>
-        function displayRadioValue() {
-            var text = document.getElementById("demo");
-            for(i=0; i<text.length; i++) {
-                if(text[i].checked)
-                document.getElementById("result").innerHTML
-                = "demo : " + text[i].value;
-            }
-            document.getElementById("tombol").innerHTML = '<button onclick="kirim2()">OK</button>';
-        }
-    </script>
-</body>8
+</body>
 
 </html>
